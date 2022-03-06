@@ -42,7 +42,7 @@ public class Setup : MonoBehaviour
 
     void PutOutTarget()
     {
-        GameObject target = Instantiate(trgt_prefab, new Vector3(5f, 0.025f, -3f), Quaternion.Euler(new Vector3(0f, 0, 0f)));
+        GameObject target = Instantiate(trgt_prefab, new Vector3(5f, 0.03f, -3f), Quaternion.Euler(new Vector3(0f, 0, 0f)));
         target.transform.name = "Target";
     }
 
