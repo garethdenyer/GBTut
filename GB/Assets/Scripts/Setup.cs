@@ -31,6 +31,7 @@ public class Setup : MonoBehaviour
         PutOutTarget();
 
         this.GetComponent<StrokeManager>().SetObjects();
+
     }
 
 
@@ -44,6 +45,7 @@ public class Setup : MonoBehaviour
     {
         GameObject target = Instantiate(trgt_prefab, new Vector3(5f, 0.03f, -3f), Quaternion.Euler(new Vector3(0f, 0, 0f)));
         target.transform.name = "Target";
+        this.GetComponent<Minimap>().RealTarget = target;
     }
 
     void PutOutGates()
