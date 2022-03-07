@@ -118,8 +118,18 @@ public class StrokeManager : MonoBehaviour
             Vector2 strikerposxz = new Vector2(strikerball.transform.position.x, strikerball.transform.position.z);
             float TotalDist = Vector2.Distance(targetposxz, strikerposxz);
 
+            //apply the player distance error
+            float strikerdisterr = strikerball.GetComponent<Ball>().disterror / 100f;
+            float randisterr = Random.Range(1 - strikerdisterr, 1 + strikerdisterr);
+            TotalDist *= randisterr;
+
             //establish the angle of the shot - based on Target/Striker difference
             float anglexzdegs = Mathf.Atan2((target.transform.position.x - strikerball.transform.position.x), (target.transform.position.z - strikerball.transform.position.z)) * Mathf.Rad2Deg;
+
+            //apply the player angle error
+            float worstangleeror = strikerball.GetComponent<Ball>().angleerror;
+            float randangerror = Random.Range(-worstangleeror, worstangleeror);
+            anglexzdegs += randangerror;
 
             //compute the force x and z values from the total distance and angle
             float anglexzrads = anglexzdegs * Mathf.Deg2Rad;            //need angle in radians for this to work

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,10 +13,16 @@ public class Ball : MonoBehaviour
 
     public int score;
 
+    //for player characteristics
+    public float angleerror;
+    public float disterror;
+    public string playername;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        angleerror = 1f;
+        disterror = 1f;
     }
 
     private void Update()
