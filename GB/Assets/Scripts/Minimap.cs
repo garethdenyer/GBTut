@@ -63,8 +63,7 @@ public class Minimap : MonoBehaviour
             TeleportRealItem(RealTarget, graphicTarget.transform.localPosition.x, graphicTarget.transform.localPosition.y);
         }
 
-
-
+        //manage the aimline
         if (viewaimline)
         {
             aimline.GetComponent<Image>().enabled = true;
