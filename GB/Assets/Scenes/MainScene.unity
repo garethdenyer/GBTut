@@ -2772,6 +2772,7 @@ GameObject:
   - component: {fileID: 473909743}
   - component: {fileID: 473909745}
   - component: {fileID: 473909746}
+  - component: {fileID: 473909747}
   m_Layer: 0
   m_Name: EmptyController
   m_TagString: Untagged
@@ -2882,6 +2883,31 @@ MonoBehaviour:
   aimline: {fileID: 1798640722}
   LawnRect: {fileID: 2498012605646605130}
   toggleaimlineblock: {fileID: 13486980285761404}
+--- !u!114 &473909747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473909742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9ca1997efb855488de5f208ec1f8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoresontheboard:
+  - {fileID: 7361673948460792019}
+  - {fileID: 7361673948068563277}
+  - {fileID: 7361673948867075767}
+  - {fileID: 7361673947739833281}
+  - {fileID: 7361673948744170867}
+  - {fileID: 7361673947302435981}
+  - {fileID: 7361673947721244954}
+  - {fileID: 7361673949181197135}
+  - {fileID: 7361673949091364134}
+  - {fileID: 7361673948521314934}
+  redteamscore: {fileID: 7361673947537573015}
+  whiteteamscore: {fileID: 7361673947617369071}
 --- !u!1001 &564146852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16803,16 +16829,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
-          m_StringArgument: W6
+          m_StringArgument: 5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673947623321186
@@ -18100,16 +18126,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: R1
+          m_StringArgument: 0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673947762544412
@@ -18619,16 +18645,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: W4
+          m_StringArgument: 3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948023117129
@@ -20039,16 +20065,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: W2
+          m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948350120293
@@ -21289,16 +21315,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: R5
+          m_StringArgument: 4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948491121828
@@ -21767,16 +21793,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: R9
+          m_StringArgument: 8
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948588178147
@@ -22721,16 +22747,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
-          m_StringArgument: R7
+          m_StringArgument: 6
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948819656587
@@ -22853,16 +22879,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
-          m_StringArgument: W8
+          m_StringArgument: 7
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948819743006
@@ -23579,16 +23605,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 9
           m_FloatArgument: 0
-          m_StringArgument: W10
+          m_StringArgument: 9
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673948922043282
@@ -25608,16 +25634,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GB2Scoreboard, Assembly-CSharp
+      - m_Target: {fileID: 473909747}
+        m_TargetAssemblyTypeName: Scoreboard, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: R3
+          m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7361673949272353362

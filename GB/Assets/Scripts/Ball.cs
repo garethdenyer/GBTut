@@ -13,6 +13,8 @@ public class Ball : MonoBehaviour
 
     Rigidbody rb;
 
+    public int score;
+
 
     private void Start()
     {
