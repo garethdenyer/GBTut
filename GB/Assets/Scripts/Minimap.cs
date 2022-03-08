@@ -31,6 +31,7 @@ public class Minimap : MonoBehaviour
     {
         setupscript = this.GetComponent<Setup>();
         strikermini = graphicballs[0];
+        Toggle2Daimline();
     }
 
     void Update()
@@ -53,15 +54,8 @@ public class Minimap : MonoBehaviour
         }
 
         //do the target
-        if (ballsfromlawn)
-        {
-            graphicTarget.transform.localPosition = iconcoords(RealTarget.transform.position.x, RealTarget.transform.position.z, panelscaleratio);
-        }
-
-        else
-        {
             TeleportRealItem(RealTarget, graphicTarget.transform.localPosition.x, graphicTarget.transform.localPosition.y);
-        }
+
 
         //manage the aimline
         if (viewaimline)

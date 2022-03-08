@@ -22,6 +22,10 @@ public class StrokeManager : MonoBehaviour
 
     public List<Button> ballbuts = new List<Button>(); //manually poplulated with list of striker choice buttons
 
+    //for sparking
+    public GameObject touchedball;
+    public bool sparkmode;
+
     public void SetObjects()
     {
         target = GameObject.Find("Target");
@@ -37,9 +41,19 @@ public class StrokeManager : MonoBehaviour
 
     public void NewStriker(int ballchoice)
     {
+        //shift to rescue a lost ball or after Agari  Coordinates are bottom right, with offset according to ball number
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            this.GetComponent<Minimap>().graphicballs[ballchoice].transform.localPosition = new Vector3(600f - (10f * ballchoice), -475f, 0f);
+        }
+
+
         //set the striker ball and strikermini to appropriate index
         strikerball = this.GetComponent<Setup>().balls[ballchoice];
         this.GetComponent<Minimap>().strikermini = this.GetComponent<Minimap>().graphicballs[ballchoice];
+
+        //just in case touchedball is still filled
+        touchedball = null;
 
         //restore ball control to 2D minimap
         this.GetComponent<Minimap>().ballsfromlawn = false;
@@ -98,7 +112,13 @@ public class StrokeManager : MonoBehaviour
         aimline3D.transform.localScale = new Vector3(u/fiddle, 0.02f, 0.02f);
         aimline3D.transform.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
 
-      
+
+        if (sparkmode)
+        {
+            Vector3 relvectorposn = (target.transform.position - strikerball.transform.position).normalized; //the difference in vectors
+            touchedball.transform.position = strikerball.transform.position + new Vector3(relvectorposn.x * 0.08f, 0f, relvectorposn.z * 0.08f);
+        }
+
     }
 
 
@@ -140,7 +160,23 @@ public class StrokeManager : MonoBehaviour
             forcex *= (-0.0019f * TotalDist) + 0.4174f;
             forcez *= (-0.0019f * TotalDist) + 0.4174f;
 
-            strikerball.GetComponent<Rigidbody>().AddForce(new Vector3(forcex, 0f, forcez), ForceMode.Impulse);
+            if (sparkmode)
+            {
+                touchedball.GetComponent<Rigidbody>().AddForce(new Vector3(forcex, 0, forcez), ForceMode.Impulse);
+
+                strikerball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                sparkmode = false;
+                hitbuttontext.text = "Stroke";
+                touchedball = null;
+
+            }
+
+            else
+            {
+                strikerball.GetComponent<Rigidbody>().AddForce(new Vector3(forcex, 0f, forcez), ForceMode.Impulse);
+            }
+
+
         }
 
         strike = false;
@@ -184,6 +220,29 @@ public class StrokeManager : MonoBehaviour
         }
 
         allstopped = true;
+    }
+
+    public void SetUpSpark(int touchedno)
+    {
+        //enable the touched ball to be teleported in 3D
+       this.GetComponent<Minimap>().ballsfromlawn = true;
+
+        //freeze teh strikerball and temporarily disable its collider
+        strikerball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        strikerball.GetComponent<Collider>().enabled = false;
+
+        //bring over the touched ball and temporaily disable its collider
+        touchedball = this.GetComponent<Setup>().balls[touchedno];
+        touchedball.GetComponent<Collider>().enabled = false;
+        touchedball.transform.position = strikerball.transform.position + new Vector3(0.8f, 0f, 0.8f);
+
+        //reenable the hit button and prepare for Spark
+        hitbuttontext.text = "Spark";
+        hitbutton.SetActive(true);
+        sparkmode = true;
+
+        strikerball.GetComponent<Collider>().enabled = true;
+        touchedball.GetComponent<Collider>().enabled = true;
     }
 
 }
