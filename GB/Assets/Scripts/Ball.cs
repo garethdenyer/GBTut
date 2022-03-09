@@ -18,11 +18,17 @@ public class Ball : MonoBehaviour
     public float disterror;
     public string playername;
 
+    StrokeManager strokemanagerscript;
+    ActivityLog activityscript;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         angleerror = 1f;
         disterror = 1f;
+
+        strokemanagerscript = FindObjectOfType<StrokeManager>();
+        activityscript = FindObjectOfType<ActivityLog>();
     }
 
     private void Update()
@@ -36,6 +42,14 @@ public class Ball : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             label.SetActive(true);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Gateball" && strokemanagerscript.strikerball.transform.name == transform.name && strokemanagerscript.sparkmode == false)
+        {
+            activityscript.MakeActivityLogItem(transform.name + " hits " + collision.transform.name);
         }
     }
 

@@ -26,6 +26,8 @@ public class StrokeManager : MonoBehaviour
     public GameObject touchedball;
     public bool sparkmode;
 
+    public Camera mainCamera;
+
     public void SetObjects()
     {
         target = GameObject.Find("Target");
@@ -87,6 +89,23 @@ public class StrokeManager : MonoBehaviour
         }
     }
 
+    public void CameraStoT()
+    {
+        Vector2 targetcoords = new Vector2(target.transform.position.x, target.transform.position.z);
+        Vector2 strikercoords = new Vector2(strikerball.transform.position.x, strikerball.transform.position.z);
+        Vector2 direction = (targetcoords - strikercoords).normalized;
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+
+        mainCamera.transform.position = new Vector3(strikerball.transform.position.x, 0.5f, strikerball.transform.position.z) ;
+        mainCamera.transform.rotation = Quaternion.Euler(20f, angle, 0);
+    }
+
+    public void LookDown()
+    {
+        mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, 1f, mainCamera.transform.position.z);
+        mainCamera.transform.rotation = Quaternion.Euler(90f, mainCamera.transform.rotation.y, 0f);
+    }
+
     private void Update()
     {
         //Draw the 3D aimline
@@ -110,7 +129,7 @@ public class StrokeManager : MonoBehaviour
         aimline3D.transform.position = new Vector3(ucentrex, 0.05f, ucentrez);
         float fiddle = 2.56f; //not sure why u needs to be reduced by this factor...
         aimline3D.transform.localScale = new Vector3(u/fiddle, 0.02f, 0.02f);
-        aimline3D.transform.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
+        aimline3D.transform.rotation = Quaternion.Euler(new Vector3(90f, angle, 0f));
 
 
         if (sparkmode)

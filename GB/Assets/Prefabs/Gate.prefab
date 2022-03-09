@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cb1e59b8b55e043a9d97db4dbdf971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateNo: 0
   label_fwd: {fileID: 3620718884250086768}
   label_rev: {fileID: 7013737917084789904}
 --- !u!1 &1942375459165980455
@@ -931,6 +932,7 @@ GameObject:
   - component: {fileID: 4595341858652667543}
   - component: {fileID: 8423633827847934693}
   - component: {fileID: 1908068092386760972}
+  - component: {fileID: 721404374964941353}
   m_Layer: 0
   m_Name: RunningDetector
   m_TagString: Untagged
@@ -1014,6 +1016,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.6, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &721404374964941353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7847458932002539370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cd13b77dbdae84ca30b9ae05e2cd41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8661024046990678144
 GameObject:
   m_ObjectHideFlags: 0
