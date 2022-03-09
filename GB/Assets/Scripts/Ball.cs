@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     public GameObject ballstamp; //the physical mesh that forms the number on the ball 
     public TMP_Text balllabel; //number displayed on the top of the ball when stationary
     public GameObject label;
+    public int ballno;
 
     Rigidbody rb;
 
@@ -20,6 +21,10 @@ public class Ball : MonoBehaviour
 
     StrokeManager strokemanagerscript;
     ActivityLog activityscript;
+    Minimap minimapscript;
+
+    public Vector3 lastoffat;
+    public bool isoutball;
 
     private void Start()
     {
@@ -29,6 +34,7 @@ public class Ball : MonoBehaviour
 
         strokemanagerscript = FindObjectOfType<StrokeManager>();
         activityscript = FindObjectOfType<ActivityLog>();
+        minimapscript = FindObjectOfType<Minimap>();
     }
 
     private void Update()
@@ -49,8 +55,21 @@ public class Ball : MonoBehaviour
     {
         if (collision.transform.tag == "Gateball" && strokemanagerscript.strikerball.transform.name == transform.name && strokemanagerscript.sparkmode == false)
         {
-            activityscript.MakeActivityLogItem(transform.name + " hits " + collision.transform.name);
+            activityscript.MakeActivityLogItem(transform.name + " hits " + collision.transform.name, "Touch", collision.transform.gameObject.GetComponent<Ball>().ballno);
         }
+    }
+
+    public void SetToBoundary()  //will put the map icon to the point where the ball crossed
+    {
+        //stop it from moving and place on spot
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+
+        //run the function in maximapscript that translates a lawn position to a map position, putting in lastoffat
+        minimapscript.graphicballs[ballno].transform.localPosition = minimapscript.iconcoords(lastoffat.x, lastoffat.z, 60f);
+
+        isoutball = true;
     }
 
 }

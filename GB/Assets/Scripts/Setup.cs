@@ -90,6 +90,7 @@ public class Setup : MonoBehaviour
 
             ball.GetComponent<Ball>().ballstamp.GetComponent<Renderer>().material = ballstamps[i - 1]; //apply the relevant material for the number on ball
             ball.GetComponent<Ball>().balllabel.text = i.ToString(); //change the label above the ball
+            ball.GetComponent<Ball>().ballno = i-1;
         }
 
     }

@@ -15,6 +15,6 @@ public class PoleDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        activityscript.MakeActivityLogItem(other.transform.name + " hit " + transform.parent.name);
+        activityscript.MakeActivityLogItem(other.transform.name + " hit " + transform.parent.name, "Pole", other.transform.gameObject.GetComponent<Ball>().ballno);
     }
 }

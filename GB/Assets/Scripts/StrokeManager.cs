@@ -144,6 +144,7 @@ public class StrokeManager : MonoBehaviour
     public void HitTheStroke()
     {
         this.GetComponent<Minimap>().ballsfromlawn = true;  //ball control from lawn in order to play shot
+        strikerball.GetComponent<Ball>().isoutball = false;
         hitbutton.SetActive(false);
         strike = true;
     }

@@ -15,12 +15,12 @@ public class GateDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        activityscript.MakeActivityLogItem(other.transform.name + " entered " + transform.parent.name);
+        activityscript.MakeActivityLogItem(other.transform.name + " entered " + transform.parent.name, "None", other.GetComponent<Ball>().ballno);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        activityscript.MakeActivityLogItem(other.transform.name + " exited " + transform.parent.name);
+        activityscript.MakeActivityLogItem(other.transform.name + " exited " + transform.parent.name, "Score", other.GetComponent<Ball>().ballno);
     }
 }
 

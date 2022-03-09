@@ -51,6 +51,17 @@ public class Minimap : MonoBehaviour
             {
                 TeleportRealItem(setupscript.balls[i], graphicballs[i].transform.localPosition.x, graphicballs[i].transform.localPosition.y);
             }
+
+            if (setupscript.balls[i].GetComponent<Ball>().isoutball)
+            {
+                graphicballs[i].GetComponent<Image>().color = Color.grey;
+            }
+
+            else
+            {
+                if (i % 2 == 0) { graphicballs[i].GetComponent<Image>().color = Color.red; }
+                else  { graphicballs[i].GetComponent<Image>().color = Color.white; }
+            }
         }
 
         //do the target
