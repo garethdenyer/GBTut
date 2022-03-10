@@ -87,6 +87,17 @@ public class StrokeManager : MonoBehaviour
 
             this.GetComponent<Minimap>().graphicballs[ballchoice].GetComponent<Image>().color = Color.white;
         }
+
+        //restart the shot clock
+        if (this.GetComponent<Timer>().timerIsRunning)
+        {
+            this.GetComponent<ShotClock>().ResetShotclock();
+            this.GetComponent<ShotClock>().StartStop();
+        }
+
+        //trigger the camera to show the striker to target view
+        CameraStoT();
+
     }
 
     public void CameraStoT()
@@ -229,6 +240,13 @@ public class StrokeManager : MonoBehaviour
 
         //reactivate the hitbutton
         hitbutton.SetActive(true);
+
+        //restart the shotclock 
+        if (this.GetComponent<Timer>().timerIsRunning)
+        {
+            this.GetComponent<ShotClock>().ResetShotclock();
+            this.GetComponent<ShotClock>().StartStop();
+        }
 
     }
 
